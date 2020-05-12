@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <link rel="icon" href="http://localhost:3000/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Web site created using CRA by Shahbaz that helps you stay update on world wide COVID-19 numbers.">
+    <meta name="keys" content="React,Shahbaz Gul Khan,Covid-19,App" <link="" rel="apple-touch-icon" href="/logo192.png">
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="http://localhost:3000/manifest.json">
+    <!--
+      Notice the use of  in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>COVID-19 Update</title>
+  <link rel="stylesheet" crossorigin="anonymous" href="./COVID-19 Update_files/main.css"><style type="text/css">body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+</style><style type="text/css">@import url(https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@900&display=swap);</style><style type="text/css">:root {
+  --dark: #282c34;
+  --top: 0.3rem;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.App-logo {
+  height: 5rem;
+  pointer-events: none;
+  vertical-align: middle;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.container {
+  padding: 1rem 3rem;
+  display: grid;
+}
+
+.header {
+  width: 100%;
+  background-color: var(--dark);
+  min-height: 40vh;
+  color: white;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  line-height: 4rem;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  display: grid;
+  font-family: "Alegreya Sans SC", sans-serif;
+  background-size: cover;
+  background-position: center;
+  /* opacity: 0.85; */
+}
+.item {
+  justify-self: center;
+  align-self: center;
+}
+.cards {
+  margin-top: var(--top);
+  width: 100%;
+  background-color: #b5c5e6;
+  min-height: 50vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(225px, 3fr));
+  grid-gap: var(--top);
+  gap: var(--top);
+}
+.card {
+  background-color: #dfe4ee;
+  border: 2px black solid;
+  min-height: 200px;
+  display: flex;
+  flex-flow: column;
+  justify-content: start;
+  border-bottom: 0.5rem white solid;
+  padding: 0.2rem 0.5rem;
+}
+.drop-down-container {
+  width: 100%;
+  background-color: var(--dark);
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  padding: 1rem;
+  margin-top: var(--top);
+  /* opacity: 0.85; */
+}
+.Dropdown-root {
+  grid-column: 2;
+}
+.chart-container {
+  /* width: 100%; */
+  background-color: var(--dark);
+  display: grid;
+  grid-template-columns: 1fr;
+  min-height: 50vh;
+  margin-top: var(--top);
+  /* opacity: 0.85; */
+}
+/* @media (min-width: 640) {
+  .header {
+    background-image: url("./assets/bckgrnd_medium.jpg");
+  }
+}
+@media (max-width: 640) {
+  .header {
+    background-image: url("./assets/bckgrnd_small.jpg");
+  }
+} */
+
+@media (max-width: 880px) {
+  .cards {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    padding: 1rem 3rem;
+  }
+  .card {
+    border: 2px black solid;
+    border-right: 0.5rem white solid;
+  }
+  .drop-down-container {
+    grid-template-columns: 1fr 4fr 1fr;
+  }
+}
+</style><style type="text/css">.Dropdown-root {
+  position: relative;
+}
+
+.Dropdown-control {
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-sizing: border-box;
+  color: #333;
+  cursor: default;
+  outline: none;
+  padding: 8px 52px 8px 10px;
+  transition: all 200ms ease;
+}
+
+.Dropdown-control:hover {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
+.Dropdown-arrow {
+  border-color: #999 transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 0;
+  content: ' ';
+  display: block;
+  height: 0;
+  margin-top: -ceil(2.5);
+  position: absolute;
+  right: 10px;
+  top: 14px;
+  width: 0
+}
+
+.is-open .Dropdown-arrow {
+  border-color: transparent transparent #999;
+  border-width: 0 5px 5px;
+}
+
+.Dropdown-menu {
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+  box-sizing: border-box;
+  margin-top: -1px;
+  max-height: 200px;
+  overflow-y: auto;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 1000;
+  -webkit-overflow-scrolling: touch;
+}
+
+.Dropdown-menu .Dropdown-group > .Dropdown-title{
+  padding: 8px 10px;
+  color: rgba(51, 51, 51, 1);
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.Dropdown-option {
+  box-sizing: border-box;
+  color: rgba(51, 51, 51, 0.8);
+  cursor: pointer;
+  display: block;
+  padding: 8px 10px;
+}
+
+.Dropdown-option:last-child {
+  border-bottom-right-radius: 2px;
+   border-bottom-left-radius: 2px;
+}
+
+.Dropdown-option:hover {
+  background-color: #f2f9fc;
+  color: #333;
+}
+
+.Dropdown-option.is-selected {
+  background-color: #f2f9fc;
+  color: #333;
+}
+
+.Dropdown-noresults {
+  box-sizing: border-box;
+  color: #ccc;
+  cursor: default;
+  display: block;
+  padding: 8px 10px;
+}
+</style><style type="text/css">/* Chart.js */
+/*
+ * DOM element rendering detection
+ * https://davidwalsh.name/detect-node-insertion
+ */
+@keyframes chartjs-render-animation {
+	from { opacity: 0.99; }
+	to { opacity: 1; }
+}
+
+.chartjs-render-monitor {
+	animation: chartjs-render-animation 0.001s;
+}
+
+/*
+ * DOM element resizing detection
+ * https://github.com/marcj/css-element-queries
+ */
+.chartjs-size-monitor,
+.chartjs-size-monitor-expand,
+.chartjs-size-monitor-shrink {
+	position: absolute;
+	direction: ltr;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+	pointer-events: none;
+	visibility: hidden;
+	z-index: -1;
+}
+
+.chartjs-size-monitor-expand > div {
+	position: absolute;
+	width: 1000000px;
+	height: 1000000px;
+	left: 0;
+	top: 0;
+}
+
+.chartjs-size-monitor-shrink > div {
+	position: absolute;
+	width: 200%;
+	height: 200%;
+	left: 0;
+	top: 0;
+}
+</style></head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"><div class="container"><header class="header"><span class="item">C<img src="./COVID-19 Update_files/virus.8172e304.svg" class="App-logo" alt="logo">vid-19 Update</span></header><div class="cards"><div class="card"><h2>Infected</h2><h4>Date Updated</h4><h3>Number of active cases of COVID-19</h3></div><div class="card"><h2>Recovered</h2><h4>Date Updated</h4><h3>Number of recovered cases from COVID-19</h3></div><div class="card"><h2>Deaths</h2><h4>Date Updated</h4><h3>Number of deaths caused by COVID-19</h3></div></div><div class="drop-down-container"><div class="Dropdown-root drop-down"><div class="Dropdown-control" aria-haspopup="listbox"><div class="Dropdown-placeholder">Select an option</div><div class="Dropdown-arrow-wrapper"><span class="Dropdown-arrow"></span></div></div></div></div><div class="chart-container"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div><canvas height="766" width="1532" class="chartjs-render-monitor" style="display: block; height: 383px; width: 766px;"></canvas></div></div></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  <script src="./COVID-19 Update_files/bundle.js.download"></script><script src="./COVID-19 Update_files/1.chunk.js.download"></script><script src="./COVID-19 Update_files/main.chunk.js.download"></script><script src="./COVID-19 Update_files/main.c346a43428a5de76165a.hot-update.js.download"></script>
+
+</body></html>

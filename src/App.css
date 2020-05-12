@@ -1,10 +1,39 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@900&display=swap");
+
+:root {
+  --dark: #282c34;
+  --top: 0.4rem;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 5rem;
   pointer-events: none;
+  vertical-align: middle;
+}
+.arrow-up {
+  height: 1rem;
+  cursor: pointer;
+  vertical-align: middle;
+  animation: arrow-focus infinite 4s ease-in-out;
+}
+.arrow-up-container {
+  position: fixed;
+  bottom: 5vh;
+  right: 5%;
+  background-color: white;
+  border-radius: 5px;
+  padding: 0.2rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -12,27 +41,156 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+}
+@keyframes arrow-focus {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+.container {
+  padding: 1rem 3rem;
+  display: grid;
+}
+
+.header {
+  width: 100%;
+  background-color: var(--dark);
+  min-height: 35vh;
+  color: white;
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  line-height: 4rem;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  display: grid;
+  font-family: "Alegreya Sans SC", sans-serif;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px 20px 0 0;
+  /* opacity: 0.85; */
+}
+.item {
+  justify-self: center;
+  align-self: center;
+}
+.cards {
+  margin-top: var(--top);
+  width: 100%;
+  background-color: #b5c5e6;
+  min-height: 30vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(225px, 3fr));
+  gap: var(--top);
+  border-radius: 10px;
+}
+.card {
+  background-color: #dfe4ee;
+  border: 2px black solid;
+  min-height: 200px;
+  display: flex;
+  flex-flow: column;
+  justify-content: start;
+  border-bottom: 0.5rem white solid;
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+}
+.drop-down-container {
+  width: 100%;
+  background-color: var(--dark);
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  padding: 1rem;
+  margin-top: var(--top);
+  margin-bottom: var(--top);
+  /* opacity: 0.85; */
+}
+.drop-down {
+  grid-column: 2;
+}
+
+.chart-container {
+  background-color: #b5c5e6;
+  position: relative;
+  margin: auto;
+  width: 80vw;
+  padding: 1rem 5vw;
+}
+
+footer {
+  margin-top: var(--top);
+  width: 100%;
+  background-color: var(--dark);
+  min-height: 40vh;
+  color: white;
+  text-transform: uppercase;
+  justify-self: center;
+  align-self: center;
+  text-align: center;
+  display: grid;
+  font-family: "Alegreya Sans SC", sans-serif;
+  border-radius: 0 0 20px 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+.content,
+.linked-in {
+  justify-self: center;
+  align-self: center;
+}
+.footer-logo {
+  width: 2rem;
+  vertical-align: middle;
+  padding: 0 0.2rem 0.2rem;
+}
+
+/* .chart-container {
+  background-color: var(--dark);
+  justify-self: center;
+  margin-top: var(--top);
+} */
+/* @media (min-width: 640) {
+  .header {
+    background-image: url("./assets/bckgrnd_medium.jpg");
+  }
+}
+@media (max-width: 640) {
+  .header {
+    background-image: url("./assets/bckgrnd_small.jpg");
+  }
+} */
+
+@media (max-width: 880px) {
+  .container {
+    padding: 1rem 1rem;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    padding: 1rem 3rem;
+  }
+  .card {
+    border: 2px black solid;
+    border-right: 0.5rem white solid;
+  }
+  .drop-down-container {
+    grid-template-columns: 1fr 4fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    padding: 0;
   }
 }
