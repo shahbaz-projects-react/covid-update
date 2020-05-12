@@ -13,6 +13,13 @@ const BarChart = ({ data, country }) => {
             {
               ticks: {
                 beginAtZero: true,
+                callback: function (label, index, labels) {
+                  return label / 1000 + "k";
+                },
+              },
+              scaleLabel: {
+                display: true,
+                labelString: "1k = 1000",
               },
             },
           ],

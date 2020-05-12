@@ -156,22 +156,6 @@ footer {
   padding: 0 0.2rem 0.2rem;
 }
 
-/* .chart-container {
-  background-color: var(--dark);
-  justify-self: center;
-  margin-top: var(--top);
-} */
-/* @media (min-width: 640) {
-  .header {
-    background-image: url("./assets/bckgrnd_medium.jpg");
-  }
-}
-@media (max-width: 640) {
-  .header {
-    background-image: url("./assets/bckgrnd_small.jpg");
-  }
-} */
-
 @media (max-width: 880px) {
   .container {
     padding: 1rem 1rem;
@@ -187,6 +171,9 @@ footer {
   }
   .drop-down-container {
     grid-template-columns: 1fr 4fr 1fr;
+  }
+  .chart-container {
+    width: 100vw;
   }
 }
 @media (max-width: 600px) {
