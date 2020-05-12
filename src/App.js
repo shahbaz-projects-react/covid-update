@@ -10,12 +10,14 @@ import getCountryDataAction, {
   getOverallData,
 } from "./redux/actions/action";
 
-import ArrowToTop from "./components/arrow/arrow-to-top.component";
-import Header from "./components/header/header.component";
-import Cards from "./components/cards/cards.component";
-import Dropdown from "./components/dropdown/dropdown.component";
-import Chart from "./components/charts/chart.component";
-import Footer from "./components/footer/footer.component";
+import {
+  ArrowToTop,
+  Header,
+  Cards,
+  Dropdown,
+  Chart,
+  Footer,
+} from "./components";
 
 class App extends React.Component {
   componentDidMount() {
